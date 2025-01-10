@@ -28,7 +28,7 @@ pub enum CustomError {
 
     #[msg("Failed to remove liquidity")]
     FailedToRemoveLiquidity,
-    
+
     #[msg("Sold token is not enough to remove pool")]
     NotEnoughToRemove,
 
@@ -46,7 +46,7 @@ pub enum CustomError {
 
     #[msg("Token is not enough in vault")]
     NotEnoughTokenInVault,
-   
+
     #[msg("Amount is negative")]
     NegativeNumber,
 }

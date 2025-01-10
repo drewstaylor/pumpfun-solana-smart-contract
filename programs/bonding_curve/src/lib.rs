@@ -1,10 +1,10 @@
 use anchor_lang::prelude::*;
 
+pub mod consts;
 pub mod errors;
-pub mod utils;
 pub mod instructions;
 pub mod state;
-pub mod consts;
+pub mod utils;
 
 use crate::instructions::*;
 
@@ -22,9 +22,7 @@ pub mod bonding_curve {
         instructions::create_pool(ctx)
     }
 
-    pub fn add_liquidity(
-        ctx: Context<AddLiquidity>,
-    ) -> Result<()> {
+    pub fn add_liquidity(ctx: Context<AddLiquidity>) -> Result<()> {
         instructions::add_liquidity(ctx)
     }
 
@@ -39,6 +37,4 @@ pub mod bonding_curve {
     pub fn sell(ctx: Context<Sell>, amount: u64, bump: u8) -> Result<()> {
         instructions::sell(ctx, amount, bump)
     }
-    
 }
-

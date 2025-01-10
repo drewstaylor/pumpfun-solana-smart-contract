@@ -1,10 +1,7 @@
 use crate::{errors::CustomError, state::*};
 use anchor_lang::prelude::*;
 
-pub fn initialize(
-    ctx: Context<InitializeCurveConfiguration>,
-    fees: f64,
-) -> Result<()> {
+pub fn initialize(ctx: Context<InitializeCurveConfiguration>, fees: f64) -> Result<()> {
     let dex_config = &mut ctx.accounts.dex_configuration_account;
 
     if !(0_f64..=100_f64).contains(&fees) {

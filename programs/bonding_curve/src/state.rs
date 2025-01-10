@@ -263,10 +263,13 @@ impl<'info> LiquidityPoolAccount<'info> for Account<'info, LiquidityPool> {
         // let amount_out =
         //     ((sprt_token_after - sprt_token_before) * INITIAL_PRICE_DIVIDER as f64).round() as u64;
         // msg!("amount_out {}", amount_out);
-        let bought_amount = (self.total_supply as f64 - self.reserve_token as f64) / 1_000_000.0 / 1_000_000_000.0;
+        let bought_amount =
+            (self.total_supply as f64 - self.reserve_token as f64) / 1_000_000.0 / 1_000_000_000.0;
         msg!("bought_amount {}", bought_amount);
 
-        let root_val = (PROPORTION as f64 * amount as f64 / 1_000_000_000.0 + bought_amount * bought_amount).sqrt();
+        let root_val = (PROPORTION as f64 * amount as f64 / 1_000_000_000.0
+            + bought_amount * bought_amount)
+            .sqrt();
         msg!("root_val {}", root_val);
 
         let amount_out_f64 = (root_val - bought_amount) * 1_000_000.0 * 1_000_000_000.0;
@@ -346,15 +349,18 @@ impl<'info> LiquidityPoolAccount<'info> for Account<'info, LiquidityPool> {
         //     result
         // };
 
-        let bought_amount = (self.total_supply as f64 - self.reserve_token as f64) / 1_000_000.0 / 1_000_000_000.0;
+        let bought_amount =
+            (self.total_supply as f64 - self.reserve_token as f64) / 1_000_000.0 / 1_000_000_000.0;
         msg!("bought_amount: {}", bought_amount);
 
-        let result_amount =
-            (self.total_supply as f64 - self.reserve_token as f64 - amount as f64) / 1_000_000.0 / 1_000_000_000.0;
+        let result_amount = (self.total_supply as f64 - self.reserve_token as f64 - amount as f64)
+            / 1_000_000.0
+            / 1_000_000_000.0;
         msg!("result_amount: {}", result_amount);
 
-        let amount_out_f64 =
-            (bought_amount * bought_amount - result_amount * result_amount) / PROPORTION as f64 * 1_000_000_000.0;
+        let amount_out_f64 = (bought_amount * bought_amount - result_amount * result_amount)
+            / PROPORTION as f64
+            * 1_000_000_000.0;
         msg!("amount_out_f64: {}", amount_out_f64);
 
         let amount_out = amount_out_f64.round() as u64;
