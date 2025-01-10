@@ -219,11 +219,11 @@ impl<'info> LiquidityPoolAccount<'info> for Account<'info, LiquidityPool> {
         self.transfer_token_from_pool(
             token_accounts.1,
             token_accounts.2,
-            token_accounts.1.amount as u64,
+            token_accounts.1.amount,
             token_program,
         )?;
         // let amount = self.to_account_info().lamports() - self.get_lamports();
-        let amount = pool_sol_vault.to_account_info().lamports() as u64;
+        let amount = pool_sol_vault.to_account_info().lamports();
         self.transfer_sol_from_pool(pool_sol_vault, authority, amount, bump, system_program)?;
 
         Ok(())
@@ -269,7 +269,7 @@ impl<'info> LiquidityPoolAccount<'info> for Account<'info, LiquidityPool> {
         let root_val = (PROPORTION as f64 * amount as f64 / 1_000_000_000.0 + bought_amount * bought_amount).sqrt();
         msg!("root_val {}", root_val);
 
-        let amount_out_f64 = (root_val - bought_amount as f64) * 1_000_000.0 * 1_000_000_000.0;
+        let amount_out_f64 = (root_val - bought_amount) * 1_000_000.0 * 1_000_000_000.0;
         msg!("amount_out_f64 {}", amount_out_f64);
 
         let amount_out = amount_out_f64.round() as u64;
@@ -367,7 +367,7 @@ impl<'info> LiquidityPoolAccount<'info> for Account<'info, LiquidityPool> {
         self.transfer_token_to_pool(
             token_accounts.2,
             token_accounts.1,
-            amount as u64,
+            amount,
             authority,
             token_program,
         )?;

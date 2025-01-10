@@ -7,7 +7,7 @@ pub fn initialize(
 ) -> Result<()> {
     let dex_config = &mut ctx.accounts.dex_configuration_account;
 
-    if fees < 0_f64 || fees > 100_f64 {
+    if !(0_f64..=100_f64).contains(&fees) {
         return err!(CustomError::InvalidFee);
     }
 
