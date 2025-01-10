@@ -13,7 +13,7 @@ url = "https://api.devnet.solana.com"
 
 [provider]
 cluster = "Devnet"
-wallet = "./id.json"
+wallet = " ~/.config/solana/"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
