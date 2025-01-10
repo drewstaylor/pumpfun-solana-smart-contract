@@ -1,16 +1,16 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { BondingCurve } from "../target/types/bonding_curve"
+import { BondingCurve } from "../target/types/bonding_curve";
 import { Connection, PublicKey, Keypair, SystemProgram, Transaction, sendAndConfirmTransaction, ComputeBudgetProgram, SYSVAR_RENT_PUBKEY } from "@solana/web3.js"
 import { createMint, getOrCreateAssociatedTokenAccount, mintTo, getAssociatedTokenAddress } from "@solana/spl-token"
-import { expect } from "chai";
+// import { expect } from "chai";
 import { BN } from "bn.js";
-import keys from '../keys/users.json'
-import key2 from '../keys/user2.json'
+import keys from '../../../../../.config/solana/user1.json';
+import key2 from '../../../../../.config/solana/user2.json';
 import { ASSOCIATED_PROGRAM_ID, TOKEN_PROGRAM_ID } from "@coral-xyz/anchor/dist/cjs/utils/token";
 
-// const connection = new Connection("https://api.devnet.solana.com")
-const connection = new Connection("http://localhost:8899")
+const connection = new Connection("https://api.devnet.solana.com")
+// const connection = new Connection("http://localhost:8899")
 const curveSeed = "CurveConfiguration"
 const POOL_SEED_PREFIX = "liquidity_pool"
 const LIQUIDITY_SEED = "LiqudityProvider"
