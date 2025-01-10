@@ -1,4 +1,11 @@
-# 💊 PumpFun Solana Smart Contract
+# WARNING: This contract is useless, DO NOT use in production
+
+OG author has removed much of the important code, this project does not compile. Missing entrypoint code includes:
+
+- `add_liquidity`
+- `remove_liquidity`
+
+## 💊 PumpFun Solana Smart Contract
 
 The **Pump.fun Smart Contract forking** is an innovative platform  designed to allow users to create tokens, markets, and pools on Raydium/Meteora. This comprehensive project offers not only same features of pump.fun but also more for managing token authorities, customizing token properties, white list and handling liquidity pools with advanced functionalities.
 
