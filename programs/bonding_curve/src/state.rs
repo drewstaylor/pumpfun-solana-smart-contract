@@ -481,6 +481,7 @@ impl<'info> LiquidityPoolAccount<'info> for Account<'info, LiquidityPool> {
     }
 }
 
+#[allow(dead_code)]
 fn calculate_amount_out(reserve_token_with_decimal: u64, amount_with_decimal: u64) -> Result<u64> {
     // Convert to f64 for decimal calculations
     let reserve_token = (reserve_token_with_decimal as f64) / 1_000_000_000.0;
